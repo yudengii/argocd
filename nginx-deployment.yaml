@@ -16,7 +16,9 @@ spec:
         app: server
     spec:
       containers:
-        - name: server
+        - name: nginx-server
           image: seoulbigdatat-registry.ncr.gov-ntruss.com/nginx:test
           ports:
             - containerPort: 80
+      nodeSelector:
+        key: prod
