@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: server
-          image: nginx:latest
+          image: seoulbigdatat-registry.ncr.gov-ntruss.com/nginx:test
           ports:
             - containerPort: 80
