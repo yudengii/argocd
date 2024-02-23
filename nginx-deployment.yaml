@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nginx-server
-          image: seoulbigdata-registry.ncr.gov-ntruss.com/nginx:test
+          image: nginx:latest
           ports:
             - containerPort: 80
       imagePullSecrets:
