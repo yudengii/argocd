@@ -5,10 +5,7 @@ metadata:
   labels:
     app: server
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: server
+  replicas: 3
   template:
     metadata:
       name: nginx-server
