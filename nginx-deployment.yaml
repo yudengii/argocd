@@ -3,21 +3,20 @@ kind: Deployment
 metadata:
   name: nginx-server
   labels:
-    app: server
+    app: nginx
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
       name: nginx-server
       labels:
-        app: server
+        app: nginx
     spec:
       containers:
-        - name: nginx-server
-          image: seoulbigdata-registry.ncr.gov-ntruss.com/nginx:test
+        - name: nginx-server-container
+          image: nginx:latest
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: ncp-registry-key
-      nodeSelector:
-        key: prod
