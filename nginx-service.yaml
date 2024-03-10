@@ -3,16 +3,13 @@ kind: Service
 metadata:
   name: nginx-service
   labels:
-    app: server
-  annotations:
-    service.beta.kubernetes.io/ncloud-load-balancer-layer-type: "nlb"
-    service.beta.kubernetes.io/ncloud-load-balancer-internal: "false"
-    service.beta.kubernetes.io/ncloud-load-balancer-size: "SMALL"
+    app: nginx
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: server
+    app: nginx
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8080      
+      targetPort: 80 
+      nodePort: 30080 
