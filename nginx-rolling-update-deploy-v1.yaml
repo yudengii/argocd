@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
         - name: tomcat-server
-          image: tomcat:8.0
+          image: tomcat:latest
           ports:
             - containerPort: 8080
