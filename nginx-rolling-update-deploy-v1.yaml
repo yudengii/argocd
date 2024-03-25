@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: tomcat-server
-          image: tomcat:8.0
+          image: tomcat:7.0
           ports:
             - containerPort: 8080
           livenessProbe:
