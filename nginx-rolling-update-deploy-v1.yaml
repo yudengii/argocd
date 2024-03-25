@@ -23,6 +23,18 @@ spec:
     spec:
       containers:
         - name: tomcat-server
-          image: tomcat:9.0
+          image: tomcat:8.0
           ports:
             - containerPort: 8080
+          livenessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            httpGet:
+              path: /    
+              port: 8080
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            httpGet:
+              path: /
+              port: 8080
