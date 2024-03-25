@@ -25,4 +25,4 @@ spec:
         - name: tomcat-server
           image: tomcat:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
