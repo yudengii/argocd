@@ -8,7 +8,6 @@ metadata:
     kubernetes.io/change-cause: pod cpu/mem request
   namespace: test
 spec:
-  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
