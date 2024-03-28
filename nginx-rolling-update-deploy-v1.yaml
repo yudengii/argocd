@@ -30,7 +30,7 @@ spec:
           resources:
             requests:
               cpu: 10m
-              memory: 220Mi
+              memory: 300Mi
           livenessProbe:
             initialDelaySeconds: 10
             periodSeconds: 5
