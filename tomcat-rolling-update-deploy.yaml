@@ -5,7 +5,7 @@ metadata:
   labels:
     app: tomcat
   annotations:
-    kubernetes.io/change-cause: version 9.0 -> 8.0
+    kubernetes.io/change-cause: version 8.7
   namespace: test
 spec:
   progressDeadlineSeconds: 120
@@ -25,22 +25,28 @@ spec:
     spec:
       containers:
         - name: tomcat-server
-          image: tomcat:8.0
+          image: tomcat:8.7
           ports:
             - containerPort: 8080
           resources:
             requests:
               cpu: 10m
               memory: 300Mi
+          volumeMounts:
+            - mountPath: "/prod/web-portal"
+              name: prod-nas
           livenessProbe:
+            exec:
+              command: ["cat", "/prod/web-portal/ready.txt"]
             initialDelaySeconds: 10
             periodSeconds: 5
-            httpGet:
-              path: /    
-              port: 8080
           readinessProbe:
             initialDelaySeconds: 10
             periodSeconds: 5
             httpGet:
               path: /
               port: 8080
+      volumes:
+        - name: prod-nas
+          persistentVolumeClaim:
+            claimName: prod-nas
